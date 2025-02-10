@@ -10,7 +10,7 @@ phases:
       - DOCKER_PASSWORD=Cisco@2020
       - DOCKER_USERNAME=ramilabala@gmail.com
       - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-      - aws aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 654654247415.dkr.ecr.us-east-2.amazonaws.com
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 654654247415.dkr.ecr.us-east-2.amazonaws.com
   build:
     commands:
       - echo Running Gradle build...
