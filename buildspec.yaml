@@ -10,7 +10,7 @@ phases:
       - DOCKER_PASSWORD=Cisco@2020
       - DOCKER_USERNAME=ramilabala@gmail.com
       - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 654654247415.dkr.ecr.us-east-1.amazonaws.com
+      - aws aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 654654247415.dkr.ecr.us-east-2.amazonaws.com
   build:
     commands:
       - echo Running Gradle build...
@@ -25,11 +25,11 @@ phases:
   post_build:
     commands:
       - echo Tagging the Docker image...
-      - docker tag datastorems-repo:latest 654654247415.dkr.ecr.us-east-1.amazonaws.com/datastorems-repo:latest
+      - docker tag datastorems-repo:latest 654654247415.dkr.ecr.us-east-2.amazonaws.com/datastorems-repo:latest
       - echo Pushing the Docker image to AWS ECR...
-      - docker push 654654247415.dkr.ecr.us-east-1.amazonaws.com/datastorems-repo:latest
+      - docker push 654654247415.dkr.ecr.us-east-2.amazonaws.com/datastorems-repo:latest
       - echo Writing image definitions file...
-      - REPOSITORY_URI=654654247415.dkr.ecr.us-east-1.amazonaws.com/datastorems-repo
+      - REPOSITORY_URI=654654247415.dkr.ecr.us-east-2.amazonaws.com/datastorems-repo
       - echo Writing image definitions file...
       - printf '[{"name":"datastorems-service","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - echo Writing image definitions file...
