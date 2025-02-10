@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/bookings")
+@CrossOrigin(origins = "*")
 public class BookingController {
     private final BookingServiceImpl bookingServiceImpl;
     private static final Logger logger = LogManager.getLogger(BookingController.class);

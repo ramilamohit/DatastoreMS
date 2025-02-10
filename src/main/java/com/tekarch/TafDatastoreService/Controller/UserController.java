@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public class UserController {
     private final UserServiceImpl userserviceImpl;
     private static final Logger logger = LogManager.getLogger(UserController.class);
